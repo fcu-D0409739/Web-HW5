@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Markers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<style>
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+	#map {
+	height: 100%;
+	}
+/* Optional: Makes the sample page fill the window. */
+	html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+var map;
+function initMap() {
+map = new google.maps.Map(document.getElementById('map'), {
+zoom: 13,
+center: new google.maps.LatLng(24.179116, 120.646707),
+mapTypeId: 'terrain'
+});
+var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+var icons = {
+post: {
+icon: iconBase + 'post_office_maps.png'
+},
+gas: {
+icon: iconBase + 'info_maps.png'
+},
+};
+
+
+
+
+var features = [
+{
+position: new google.maps.LatLng(24.176692,120.637654,),
+type: 'post'
+}, {
+position: new google.maps.LatLng(24.178693,120.64674),
+type: 'post'
+}, {
+position: new google.maps.LatLng(24.16492,120.653783),
+type: 'post'
+}, {
+position: new google.maps.LatLng(24.183497,120.618516),
+type: 'post'
+}, {
+position: new google.maps.LatLng(24.1563818,120.6527719),
+type: 'post'
+}, {
+position: new google.maps.LatLng(24.1563818,120.6527719),
+type: 'post'
+}, {
+position: new google.maps.LatLng(24.169928,120.606454),
+type: 'post'
+}, {
+position: new google.maps.LatLng(24.178987,120.601653),
+type: 'post'
+}, {
+position: new google.maps.LatLng(24.1834903,120.6050127),
+type: 'post'
+}, {
+position: new google.maps.LatLng(24.171326,120.64393),
+type: 'gas'
+}, {
+position: new google.maps.LatLng(24.1830782,120.6148086),
+type: 'gas'
+} , {
+position: new google.maps.LatLng(24.200945,120.6577079),
+type: 'gas'
+} , {
+position: new google.maps.LatLng(24.183707,120.629852),
+type: 'gas'
+} , {
+position: new google.maps.LatLng(24.1926872,120.6229949),
+type: 'gas'
+} , {
+position: new google.maps.LatLng(24.1748831,120.604916),
+type: 'gas'
+}, {
+position: new google.maps.LatLng(24.172045,120.645289),
+type: 'gas'
+},{
+position: new google.maps.LatLng(24.162461,120.628174),
+type: 'gas'
+},{
+position: new google.maps.LatLng(24.1618,120.650519),
+type: 'gas'
+} ,{
+position: new google.maps.LatLng(24.1617999,120.650519),
+type: 'gas'
+} ,{
+position: new google.maps.LatLng(),
+type: 'gas'
+}    
+];
+
+
+
+	var contentString = '<div>' +
+'<h3>Fia University</h3>' +
+'</div>'
+
+	var contentString = '<div>' +
+'<h3>Feng Chia University</h3>' +
+'</div>'
+
+
+
+
+var infowindow = new google.maps.InfoWindow({
+content: contentString
+});	
+
+
+
+
+	
+
+// Create markers.
+features.forEach(function(feature) {
+var marker = new google.maps.Marker({
+position: feature.position,
+icon: icons[feature.type].icon,
+map: map
+});
+
+
+
+
+marker.addListener('mouseover', function() {
+	infowindow.open(map, marker);
+	});
+
+});
+
+
+//if(marker.getPosition()!=LatLng(24.176692,120.637654,)){
+	
+
+
+
+
+
+
+}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVzeYipfPzJuiHOUEu1CNUy9cYuaLBHaY&callback=initMap">
+</script>
+</body>
+</html>
